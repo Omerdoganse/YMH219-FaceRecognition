@@ -14,7 +14,7 @@ public sealed class FaceRecognizerService : IDisposable
     private readonly List<string> _labelNames = [];
 
     /// <summary>Bu uzaklığın üstündeki tahminler "Bilinmiyor" kabul edilir.</summary>
-    public double UnknownThreshold { get; set; } = 75;
+    public double UnknownThreshold { get; set; } = 90;
 
     public bool IsTrained => _model != null;
     public int LabelCount => _labelNames.Count;

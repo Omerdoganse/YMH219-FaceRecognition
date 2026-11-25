@@ -508,11 +508,12 @@ public class MainForm : Form
         int added = 0;
         try
         {
-            for (int i = 0; i < count; i++)
+            // Yüz bulunamayan kareler sayılmaz; istenen sayıya ulaşana kadar (en fazla 3 katı deneme) devam edilir
+            for (int attempt = 0; attempt < count * 3 && added < count; attempt++)
             {
                 if (TryAddCurrentFace(label)) added++;
                 SetStatus($"'{label}' için örnek ekleniyor... {added}/{count}");
-                if (count > 1) await Task.Delay(350); // Farklı pozlar için kısa bekleme
+                if (count > 1) await Task.Delay(added == 0 ? 150 : 350); // Farklı pozlar için kısa bekleme
             }
         }
         catch (FaceAppException ex)

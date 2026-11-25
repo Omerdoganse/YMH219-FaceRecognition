@@ -33,5 +33,5 @@ public sealed class FaceResult
     }
 
     /// <summary>Görüntü üzerine yazılacak kısa metin (örn. "Ömer %82").</summary>
-    public string Caption => Distance is null ? "Yuz" : $"{Label} %{Confidence:0}";
+    public string Caption => Distance is null ? "Yüz" : $"{Label} %{Confidence:0}";
 }
